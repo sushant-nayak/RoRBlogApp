@@ -58,12 +58,20 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1
   # DELETE /comments/1.json
+=begin
   def destroy
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+=end
+  def destroy
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.find(params[:id])
+    @comment.destroy
+    redirect_to article_path(@article)
   end
 
   private
@@ -74,11 +82,7 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:commenter, :body, :article_id)
-    end
-
-  private
-    def comment_params
       params.require(:comment).permit(:commenter, :body)
     end
+
 end
