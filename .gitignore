@@ -29,3 +29,12 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+.idea
+.DS_Store
+.idea/dataSources.local.xml
+.idea/dataSources/2a12889c-f7ec-4a4e-819a-024fa9e2b8bc.xml
+.idea/dataSources/2a12889c-f7ec-4a4e-819a-024fa9e2b8bc/
+.idea/workspace.xml
+log/
+tmp/
